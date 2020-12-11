@@ -1,0 +1,25 @@
+{
+  "name": "mcctoken",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.7.1",
+    "@openzeppelin/contract-loader": "^0.6.1",
+    "@openzeppelin/contracts-ethereum-package": "^2.4.0",
+    "truffle-contract": "^4.0.31",
+    "truffle-hdwallet-provider-klaytn": "^1.0.13-a",
+    "web3": "^1.2.6"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3"
+  }
+}

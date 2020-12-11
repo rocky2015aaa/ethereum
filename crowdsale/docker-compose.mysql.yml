@@ -1,0 +1,13 @@
+version: '3'
+services:
+        mysql:
+                network_mode: "host"
+                restart: always
+                build: docker/mysql
+                volumes:
+                  - /opt/mysql_data:/var/lib/mysql
+
+        nginx:
+                network_mode: "host"
+                restart: always
+                build: docker/nginx

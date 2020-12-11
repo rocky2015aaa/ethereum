@@ -1,0 +1,54 @@
+version: '3.5'
+
+networks:
+  default:
+    external:
+      name: mnet
+
+services:
+
+  klay1:
+    image: m/ken-m:1.0
+    container_name: ken-m
+    volumes:
+      - /data/ken_home/:/root/ken_home/
+    networks:
+      default:
+    ports:
+      - target: 9889
+        published: 9889
+        mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500M"
+        max-file: "10"
+    deploy:
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == tmhfbn1
+
+  klay2:
+    image: m/ken-m:1.0
+    container_name: ken-m
+    volumes:
+      - /data/ken_home/:/root/ken_home/
+    networks:
+      default:
+    ports:
+      - target: 9889
+        published: 9889
+        mode: host
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500M"
+        max-file: "10"
+    deploy:
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == tmhfbn2

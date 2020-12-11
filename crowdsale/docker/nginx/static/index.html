@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MCC ICO</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var loginMsg = getCookie("login_failure_msg");
+            if (typeof loginMsg !== "undefined") {
+                document.getElementById('_login_msg').innerHTML = urldecode(loginMsg);            
+            }
+            deleteCookie("login_failure_msg");
+        });
+
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+
+        function urldecode(text) {
+            return decodeURIComponent((text + '').replace(/\+/g, '%20'));
+        }
+
+        function deleteCookie( name ) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="login-page">
+        <h2>MMC Token ICO Login</h2>
+        <div class="form">
+            <form class="login-form" action="/login" method="POST">
+                <input id="_email" type="text" placeholder="email" name="email" />
+                <input id="_password" type="password" placeholder="password" name="password" />
+                <button>login</button>
+            </form>
+            <br/>
+            <b><span style='color:#FF0000' id="_login_msg"></span></b>
+            <br/>
+            <p class="message">Not registered?
+                <a href="#">Create an account</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
